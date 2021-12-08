@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans&display=swap');
+
+:root {
+--primary-color: hsl(0, 0%, 100%);
+--black: hsl(0, 0%, 0%);
+--darkGray: hsl(0, 0%, 55%);
+--veryDarkGray: hsl(0, 0%, 41%);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    font-family: "Alata", sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+a {
+    color: var(--primary-color);   
+}
+
+ul {
+    list-style-type: none;
+}
+
+/*Header*/
+
+header {
+  min-height: 600px;
+  padding: 75px;
+  background: url("/images/desktop/image-hero.jpg") no-repeat center;
+  object-fit: fill;
+  background-size: cover;
+  background-blend-mode: multiply;
+}
+
+header .navbar{
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 120px;
+}
+
+nav ul{ 
+  display: grid; 
+  grid-template-columns: repeat(5, minmax(min-content, min-content));
+  grid-gap: 32px;
+}
+
+nav ul li { position: relative; }
+
+nav ul li a:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+nav ul li a::after { 
+  content: '';
+  position: absolute;
+  width: 70%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+nav ul li a:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.banner {
+  margin-bottom: 20px;
+}
+
+.banner h1 { 
+  max-width: 650px;
+  padding: 30px;
+  margin-bottom: 30px;
+  border: 3px solid var(--white);
+  font-size: 4rem;
+  color: var(--primary-color);
+}
+
+
+/* About Section */
+
+.about {
+  position: relative;
+  padding: 0 100px;
+  margin: 250px;
+}
+
+.about .img-box img { display: block; }
+
+.about .content-box {
+  position: absolute;
+  top: 180px;
+  left: 50% ;
+  padding: 95px;
+  max-width: 640px;
+  background: var(--white);
+}
+
+.about .content-box h2 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+
+.about .content-box p {
+  color: var(--darkGray);
+  line-height: 1.7;
+}
+
+/* Product Section*/
+
+#grid {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.product {
+  position: relative;
+  margin-bottom: 150px;
+}
+
+.product-text {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+.col-sm {
+  position: relative;
+  cursor: pointer;
+  height: 450px;
+}
+
+.col-sm::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+}
+
+.col-sm:hover::after { background: linear-gradient(180deg, #fffa 40%, #555a); }
+
+.row {
+  padding: 20px;
+}
+
+.img-text {
+  position: absolute;
+  bottom: 10px;
+  left: 50px;
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--primary-color);
+  font-weight: lighter;
+  text-shadow: 1px 1px black;
+}
+
+.btn-primary {
+  display: flex;
+  right: var(--px);
+  top:   5px;
+  padding: 8px 35px;
+  letter-spacing: 5px;
+  border: 1px solid var(--black);
+  color: var(--black);
+}
+
+.btn-primary:hover {
+  color: var(--white);
+  background: var(--black);
+}
+
+/* Footer  */
+
+footer {
+  background-color: var(--black);
+  padding: 40px 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-brand { margin-bottom: 20px; }
+
+.footer-brand img { max-width: 140px; }
+
+
+.footer-right { text-align: right; }
+
+.social-links { margin-bottom: 20px; }
+
+.social-links a {
+  font-size: 1.8em;
+  color: var(--white);
+}
+
+.social-links a:not(:last-child) { margin-right: 12px; }
+
+.copyright { color: var(--vary-dark-gray); }
+
+/*************************Media Queries****************************/
+
+@media screen and (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: auto;
+  }
+
+  /*Head*/
+  header {
+    min-height: 800px;
+    padding: 20px;
+    background: url("/images/mobile/image-hero.jpg") no-repeat center;
+    object-fit: fill;
+    background-size: cover;
+    background-blend-mode: multiply;
+  }
+
+  .banner {
+    display: flex;
+    justify-content: center;
+  }
+
+  .banner h1 { 
+    max-width: 450px;
+    padding: 10px;
+    margin-bottom: 30px;
+  }
+
+  nav{
+    display: none;
+  }
+
+  /***Body***/
+  /* About Section */
+  .about {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .about .img-box img { 
+    max-width: 500px;
+    padding: auto;
+  }
+
+  .about .content-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    background: var(--white);
+    width: 500px;
+  }
+
+  /*Prouct Section*/
+
+
+
+}
+
+/********************************Global****************************/
+
+.container {
+  max-width: 1440px;
+}
